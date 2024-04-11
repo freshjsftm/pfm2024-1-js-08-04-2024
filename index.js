@@ -1,17 +1,26 @@
-const numberFromDB = 4;
-const numberFromUser = '11';
-const conversionNumberFromUser =  Number(numberFromUser);
-const result = numberFromDB +  conversionNumberFromUser;
-console.log('result =', result);
-console.log('typeof result =', typeof result);
-console.log('typeof conversionNumberFromUser =', typeof conversionNumberFromUser);
 
-const isActiveUser = false;
-const result2 = numberFromDB + Number(isActiveUser);
-console.log('result =', result2);
-console.log('typeof result =', typeof result2);
+console.log(12%0); //NaN  
 
-const userFirstName = 'Bred';
-const userLastName = 'Pitt';
-const userFullName = userFirstName + ' ' + userLastName;
-console.log('userFullName =', userFullName);
+console.log(12*'qwerty'); //NaN
+
+console.log(12 + -true); //12
+
+console.log(12 * undefined); //NaN
+
+console.log(12 - NaN); //NaN
+/*
+0 -0 +0
+''
+null
+false
+*/
+/*
+1
+true
+*/
+/*
+NaN
+0/0
+n%0
+/+-*% NaN || undefined
+*/
