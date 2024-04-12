@@ -1,48 +1,76 @@
-let number1 = 1;
-let number2 = 5;
-const elem = null;
-const condition = true;
-const str1 = ' '; //32
-const str2 = '!'; //33
-const str3 = ''; // '' !== ''
-// false 0 '' NaN null undefined
+/*
+if (condition) {
+  statement1 
+} else {
+  statement2
+}
+*/
+//......34567......
 
-//             false            true         !
-const check = str3 !== '' && condition && str2 ;
-console.log('check = ', check);//!
+let number1 = 15;
+const divisor = 5;
+const minRange = 11;
+const maxRange = 16;
 
-//const check = !str3 && !elem && number1===number2;
-//1 !str3 = !'' = !false = true
-//2 !elem = !null = !false = true
-//3 number1===number2 = false
-//4 !false = true
+// !(3>number1  number1<7)&& !(number1%7===0)
 
-//console.log('check = ', check);
+// написати вираз який буде правдивим якщо число НЕ кратне 5 і(або) НЕ в діапазоні [11-16) 
+//     false                         false              false
+if (number1%divisor !== 0 ||  number1<minRange || number1>=maxRange ) {
+  console.log('truthy');
+} else {
+  console.log('false');
+}
 
-// const check = undefined ?? (number1 || elem) ;
-// number1 || elem  => 1 || null => 1
-// undefined ?? 1 => 1
 
-//const check = !elem || !condition && !number1;
-//1 !elem => !null => !false => true
-//2 !condition => !true => false
-//3 !number1 => !true => false
-//4 false && false => false
-//5 true || false => true
-//console.log('check = ', check);
 
-//const result = number1 < number2 && (elem || condition);
-//1 number1 < number2 = false
-//2 elem || condition = true
-//3 false && true = false
+// написати вираз який буде правдивим якщо число більше 0 і кратне 5 (ділится без остачі, тобто залишок === 0)
 
-const number3 = 6;
-// check diapason
-const result = number1 <= number3 && number3 <= number2;
-// 1 number1 < number = true
-// 2 number3 < number2 = false
-// 3 true && false = false
+// if (number1 > 0 && number1 % divisor === 0) {
+//   console.log('truthy');
+// } else {
+//   console.log('false');
+// }
 
-//так не можна!!!
-//number1 < number3 < number2 => true<5 => 1<5 => true
-//console.log('result = ', result);
+// написати вираз який буде правдивим якщо число НЕпарне
+
+if (number1 % 2 !== 0) {
+  console.log('odd');
+} else {
+  console.log('even');
+}
+
+if (number1 % 2) {
+  console.log('odd');
+} else {
+  console.log('even');
+}
+
+// написати вираз який буде правдивим якщо число парне
+
+// bad practice
+if (!(number1 % 2)) {
+  console.log('even');
+} else {
+  console.log('odd');
+}
+
+if (number1 % 2 === 0) {
+  console.log('even');
+} else {
+  console.log('odd');
+}
+
+// написати вираз який буде правдивим якщо число позитивне або дорівнює 0
+
+if (number1 >= 0) {
+  console.log('positive or zero');
+} else {
+  console.log('negative');
+}
+
+if (0 > number1) {
+  console.log('negative');
+} else {
+  console.log('positive or zero');
+}
