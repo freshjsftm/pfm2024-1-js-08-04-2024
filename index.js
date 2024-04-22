@@ -1,32 +1,34 @@
-// continue
+//чисті функції - детерміновані без побічних ефектів
+/**
+ *
+ * @param {number} number1
+ * @param {number} number2
+ * @returns
+ */
+function getMultTwoNums(number1 = 5, number2 = 7) {
+  return number1 * number2;
+}
+function getSumTwoNums(number1 = 5, number2 = 7) {
+  return number1 + number2;
+}
+//HOF - hight order function
+function calc (number1, number2, functionOperation){
+  return functionOperation(number1, number2);
+}
+// debugger
+calc(4,3,getMultTwoNums) /// 4,3, f5dd72
 
-const min = 10;
-const max = 30;
-const devisor = 7;
-
-// вивести числа з діапазона які кратні devisor
-
-//в зворотньому порядку
-for (let number = max; number >= min; number--) {
-  if (number % devisor) {
-    continue;
-  }
-  console.log(number);
+const calc2 = function (number1, number2, functionOperation){
+  return functionOperation(number1, number2);
 }
 
-for (let number = min; number <= max; number++) {
-  if (number % devisor) {
-    continue;
-  }
-  console.log(number);
-}
+//не чиста
+const getMultTwoNums2 = function () {
+  const number1 = prompt();
+  const number2 = prompt();
+  return number1 * number2;
+};
 
-let number = min;
-while(number <= max){
-   if (number % devisor) {
-    number++;
-    continue;
-  }
-  console.log(number); 
-  number++;
+function areaRect(side1 = 5, side2 = 8) {
+  return getMultTwoNums(side1, side2);
 }
