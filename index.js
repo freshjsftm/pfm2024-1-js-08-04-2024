@@ -1,21 +1,42 @@
-const user = {
+const userVIP = {
   fname: 'Brad',
   sname: 'Pitt',
   password: 'qwerty',
-  sayName: function(){
-    return 'Hi, I\'m '+ user.fname;
+  age:60,
+  sayFirstName: function(){
+    return 'Hi, I\'m '+ this.fname;
   },
   saySecondName: function(){
-    return `Hi, I'm ${user.sname}`;
-  }
+    return `Hi, I'm ${this.sname}`;
+  },
 };
-console.log(user);
-user.age = 60;
-user.isAdult = true;
-console.log(user.age);
-delete user.password;
-console.log(user);
+userVIP.isAdult = true;
+console.log(userVIP.saySecondName());
 
-console.log(user.saySecondName());
+function User(fnameValue, sname, password, age, isAdult=true) {
+  this.fname = fnameValue;
+  this.sname = sname;
+  this.password = password;
+  this.age = age;
+  this.isAdult = isAdult;
+  this.sayFullName = function () {
+    return `${this.fname} ${this.sname}`;
+  };
+  this.getBdYear = function () {
+    //body function
+    return 1963;
+  };
+  this.showSubscribe = function () {
+    //body function
+    return 'you sicribe';
+  };
+}
 
+const user2 = new User('Brad', 'Pitt', 'qwerty', 60, true);
+console.log(user2.sayFullName());
 
+const user3 = new User('Alex', 'Qwety', 'qwerty', 20, true);
+console.log(user3.sayFullName());
+
+const user4 = new User('Tom', 'Pitt', 'qwerty', 30, true);
+console.log(user4);
