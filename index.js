@@ -1,13 +1,21 @@
 const user = {
-  //222
   fname: 'Brad',
   sname: 'Pitt',
+  password: 'qwerty',
+  sayName: function(){
+    return 'Hi, I\'m '+ user.fname;
+  },
+  saySecondName: function(){
+    return `Hi, I'm ${user.sname}`;
+  }
 };
+console.log(user);
+user.age = 60;
+user.isAdult = true;
+console.log(user.age);
+delete user.password;
+console.log(user);
 
-const activeUser = user; //222
-activeUser.age = 60;
-
-const userClient = activeUser; //222
-userClient.order = '123';
+console.log(user.saySecondName());
 
 
