@@ -1,42 +1,32 @@
-const userVIP = {
-  fname: 'Brad',
-  sname: 'Pitt',
-  password: 'qwerty',
-  age:60,
-  sayFirstName: function(){
-    return 'Hi, I\'m '+ this.fname;
-  },
-  saySecondName: function(){
-    return `Hi, I'm ${this.sname}`;
-  },
-};
-userVIP.isAdult = true;
-console.log(userVIP.saySecondName());
+// пропонуємо розв'язати приклад з множення з двома випадковими числами від [0-10] до тих пір поки юзер не наведе правильну відповідь
 
-function User(fnameValue, sname, password, age, isAdult=true) {
-  this.fname = fnameValue;
-  this.sname = sname;
-  this.password = password;
-  this.age = age;
-  this.isAdult = isAdult;
-  this.sayFullName = function () {
-    return `${this.fname} ${this.sname}`;
-  };
-  this.getBdYear = function () {
-    //body function
-    return 1963;
-  };
-  this.showSubscribe = function () {
-    //body function
-    return 'you sicribe';
-  };
+//вивести в промпті приклад множення з двома випадковими числами від [0-10]
+//відловити помилки '' null string wrong answer
+//якщо правильно - похвалити
+
+function getRandomIntInclusive(min = 0, max = 10) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function isErrorUserInputNumber(value) {
+  return value === '' || value === null || Number.isNaN(Number(value));
 }
 
-const user2 = new User('Brad', 'Pitt', 'qwerty', 60, true);
-console.log(user2.sayFullName());
+const MAX_AMOUNT = 300;
+for (let i = 0; i < MAX_AMOUNT; i++) {
+  const randomNumber1 = getRandomIntInclusive();
+  const randomNumber2 = getRandomIntInclusive();
+  const rightResult = randomNumber1 * randomNumber2;
+  const strTask = `Обчисліть вираз і введіть результат
+${randomNumber1} * ${randomNumber2} = `;
 
-const user3 = new User('Alex', 'Qwety', 'qwerty', 20, true);
-console.log(user3.sayFullName());
-
-const user4 = new User('Tom', 'Pitt', 'qwerty', 30, true);
-console.log(user4);
+  while (true) {
+    const userResult = prompt(strTask);
+    if (isErrorUserInputNumber(userResult)) {
+      continue;
+    }
+    if (rightResult === Number(userResult)) {
+      alert('win');
+      break;
+    }
+  }
+}
