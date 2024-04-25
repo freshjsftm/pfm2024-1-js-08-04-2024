@@ -5,6 +5,8 @@ function MyArrayPrototype() {
     this.length++;
     return this.length;
   };
+  this.pop = function () {};
+  this.forEach = function () {};
 }
 //конструктор для данних (для сутності інстанса)
 function MyArray() {
@@ -12,3 +14,6 @@ function MyArray() {
 }
 // зв'язок між конструктором для данних та об'єктом проптотипу
 MyArray.prototype = new MyArrayPrototype();
+
+
+
