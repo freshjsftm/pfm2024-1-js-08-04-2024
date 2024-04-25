@@ -1,38 +1,14 @@
-//ключем об'єкта може бути рядок або символ
-/*
-const multTable = {
-  '1 * 1 = ': 1,
-  '1 * 2 = ': 2,
-  '1 * 3 = ': 3,
-  '1 * 4 = ': 4,
-  '1 * 5 = ': 5,
-  '1 * 6 = ': 6,
-}
-*/
 
-function getMultTable(firstNumber = 1) {
-  const multTable = {};
-  for (let i = 1; i <= 10; i++) {
-    multTable[`${firstNumber} * ${i} = `] = firstNumber * i;
-  }
-  return multTable;
-}
+// const array1 = new Array();
+// const array3 = Array();
+// const array2 = [];
 
-console.log(getMultTable(5));
+// 4 - length array - amount empty cell
+const array1 = new Array(4);
 
-const userTask = '5 * 3 = ';
-const multTable = getMultTable(5);
+// '2' - element with index 0
+const array3 = Array('2');
+const array5 = ['2'];
 
-console.log(multTable[userTask]);
-
-function getMultTableMany(min = 1, max = 9) {
-  const multTable = {};  //address references
-  for (let firstNumber = min; firstNumber <= max; firstNumber++) {
-    for (let i = 1; i <= 10; i++) {
-      multTable[`${firstNumber} * ${i} = `] = firstNumber * i;
-    }
-  }
-  return multTable;  //address references
-}
-
-console.log(getMultTableMany());
+const array4 = new Array(2,4,7);
+const array2 = [2,4,7];
