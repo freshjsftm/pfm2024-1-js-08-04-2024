@@ -1,22 +1,28 @@
-
-const arrNums = [5,2,9];
-
+const arrNums = [];
+arrNums.push(7);
+arrNums.push(77);
 console.log(arrNums);
-console.log(arrNums.length); //3
-console.log(arrNums[2]);
-//arrNums.length = 7;
+const arrNums2 = [];
+console.log(arrNums.push === arrNums2.push);
 
-arrNums[arrNums.length] = 11;//arrNums[3] = 11
-console.log(arrNums.length); //4
-arrNums[arrNums.length] = 51;//arrNums[4] = 51
+const myArrayPrototype = {};
+myArrayPrototype.push = function (value) {
+  this[this.length] = value; 
+  this.length++;
+  return this.length;
+};
 
-arrNums.push(44);
-arrNums.push(101,102,103);
+function MyArray() {
+  this.length = 0;
+}
+
+MyArray.prototype = myArrayPrototype;
 
 
-console.log(arrNums);
-
-console.log(arrNums instanceof Array);
-console.log(arrNums instanceof Number);
-
-console.log(Array.isArray(arrNums));
+const myArrNums = new MyArray();
+myArrNums.push(20);
+myArrNums.push(33);
+console.log(myArrNums);
+const myArrNums2 = new MyArray();
+myArrNums2.push(1000);
+console.log(myArrNums.push === myArrNums2.push);
