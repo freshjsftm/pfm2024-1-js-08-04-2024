@@ -1,25 +1,34 @@
-const arrNums1 = [1, 5, 9, 4, 6];
+const arrNums1 = [1, 5, 2, 4, 6];
 
-console.log(
-  arrNums1.find(function (elem) {
-    return elem > 3;
-  })
-);
+//filter
 
-console.log(
-  arrNums1.findIndex(function (elem) {
-    return elem > 3;
-  })
-);
+const newArrNums1 = arrNums1.filter(function (elem) {
+  return elem > 3;
+});
+console.log(arrNums1);
+console.log(newArrNums1);
 
-console.log(
-  arrNums1.findLast(function (elem) {
-    return elem > 3;
-  })
-);
+const users = [
+  {id:100, login:'qwe1', isMale: true},
+  {id:200, login:'qwe21', isMale: true},
+  {id:101, login:'asd', isMale: false},
+  {id:178, login:'sss', isMale: false},
+  {id:10, login:'max', isMale: true},
+]
 
-console.log(
-  arrNums1.findLastIndex(function (elem) {
-    return elem > 3;
-  })
-);
+//зібрати в новий масив усіх жінок
+const usersWomen = users.filter(function(user){
+  return user.isMale === false;
+  //return !user.isMale;
+})
+console.table(usersWomen);
+
+users.forEach(function(user){
+  user.isSubscribe = Math.random()>0.5
+})
+console.table(users);
+
+const usersWithSubscribe = users.filter(function(user){
+  return user.isSubscribe;
+})
+console.table(usersWithSubscribe);
