@@ -1,15 +1,22 @@
+const arrNums1 = [1, 5, 9, 4, 6];
 
-const users = [
-  {id:100, login:'qwe1', isMale: true},
-  {id:200, login:'qwe21', isMale: true},
-  {id:101, login:'asd', isMale: false},
-  {id:178, login:'sss', isMale: false},
-  {id:10, login:'max', isMale: true},
-]
+console.log(arrNums1.includes(56)); //key===elem
+console.log(arrNums1.includes(5)); //key===elem
 
-users.forEach(function(user){
-  user.isSubscribe = true;
-  user.wishList = [];
-})
+//some
+if(
+  arrNums1.some(function (elem) {
+    return elem >6;
+  })
+){
+  console.log('5%');
+}
 
-console.table(users)
+//every
+if(
+  arrNums1.every(function (elem) {
+    return elem >6;
+  })
+){
+  console.log('10%');
+}
