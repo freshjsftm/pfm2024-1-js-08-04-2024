@@ -1,35 +1,15 @@
 
-const arrNums1 = [4,9,2,3,6,7];
+const users = [
+  {id:100, login:'qwe1', isMale: true},
+  {id:200, login:'qwe21', isMale: true},
+  {id:101, login:'asd', isMale: false},
+  {id:178, login:'sss', isMale: false},
+  {id:10, login:'max', isMale: true},
+]
 
-// for (let index = 0; index < arrNums1.length; index++) {
-//   const element = arrNums1[index];
-//   if(element%2){
-//     console.log(element);
-//   }
-// }
+users.forEach(function(user){
+  user.isSubscribe = true;
+  user.wishList = [];
+})
 
-// for (let i = 0; i < arrNums1.length; i++) {
-//   console.log(arrNums1[i]**2);  
-// }
-
-// arrNums1.forEach(console.log)
-// arrNums1.forEach(alert)
-
-function logOdd(element){
-  if(element%2){
-    console.log(element);
-  }
-  return; //undefined
-}
-// debugger
-arrNums1.forEach(logOdd);
-
-function logPow2(element){
-    console.log(element ** 2);
-}
-
-arrNums1.forEach(function (elem){console.log(elem**2)})
-
-logPow2(11)
-console.log('--------------');
-myArrNums1.forEach(logPow2);
+console.table(users)
