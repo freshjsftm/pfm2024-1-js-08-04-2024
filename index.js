@@ -1,23 +1,35 @@
-const arrNums1 = [4, 7, 5, 6, 8, 9];
-console.log(arrNums1);
 
-// const newArrNums1 = arrNums1;//copy address
-// newArrNums1.splice(0,1,77);
-// newArrNums1[0] = 88;
+const arrNums1 = [4,9,2,3,6,7];
 
-const arrNums1Copy = arrNums1.slice(); //copy all array
-arrNums1Copy[0] = 2222;
-console.log(arrNums1Copy.at(0))
-console.log(arrNums1Copy);
-// console.log(arrNums1);
+// for (let index = 0; index < arrNums1.length; index++) {
+//   const element = arrNums1[index];
+//   if(element%2){
+//     console.log(element);
+//   }
+// }
 
-const start = 1;
-const end = 4;
+// for (let i = 0; i < arrNums1.length; i++) {
+//   console.log(arrNums1[i]**2);  
+// }
 
-const arrNums1CopyPart = arrNums1.slice(start);
-console.log(arrNums1CopyPart);
-console.log(arrNums1);
+// arrNums1.forEach(console.log)
+// arrNums1.forEach(alert)
 
-const arrNums1CopyPart2 = arrNums1.slice(start, end);
-console.log(arrNums1CopyPart2);
-console.log(arrNums1);
+function logOdd(element){
+  if(element%2){
+    console.log(element);
+  }
+  return; //undefined
+}
+// debugger
+arrNums1.forEach(logOdd);
+
+function logPow2(element){
+    console.log(element ** 2);
+}
+
+arrNums1.forEach(function (elem){console.log(elem**2)})
+
+logPow2(11)
+console.log('--------------');
+myArrNums1.forEach(logPow2);
