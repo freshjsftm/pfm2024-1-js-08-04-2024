@@ -1,3 +1,4 @@
+'use strict';
 //конструктор для прототипу
 function MyArrayPrototype() {
   this.push = function (value) {
