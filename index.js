@@ -1,13 +1,16 @@
 'use strict';
 
-const sum1 = function (number1=2, number2=3) {
-  return number1 + number2;
-};
 
-/**
- * 
- * @param {number} number1 
- * @param {number} number2 
- * @returns {number}
- */
-const sum2 = (number1=2, number2=3) => number1 + number2;
+const sumNumbers1 = function(){
+  console.log(arguments);
+  let summa = 0;
+  for (let index = 0; index < arguments.length; index++) {
+    const element = arguments[index];
+    summa += element;
+  }
+  return summa;
+}
+
+const result = sumNumbers1(1,2,3);
+
+console.log(result);
