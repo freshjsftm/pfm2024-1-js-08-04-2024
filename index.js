@@ -1,23 +1,13 @@
 'use strict';
-// debugger
-const dataProto = {
-  addFrom: function(){
-    this.users.forEach((user)=>{
-      user.from = this.from;
-    })
-  }
+
+const sum1 = function (number1=2, number2=3) {
+  return number1 + number2;
 };
-const data = {
-  error: null,
-  from: 'db',
-  users: [
-    { id: 100, login: 'qwe1', isMale: true },
-    { id: 200, login: 'qwe21', isMale: true },
-    { id: 101, login: 'asd', isMale: false },
-    { id: 178, login: 'sss', isMale: false },
-    { id: 10, login: 'max', isMale: true },
-  ],
-  __proto__: dataProto,
-};
-data.addFrom();
-console.table(data.users)
+
+/**
+ * 
+ * @param {number} number1 
+ * @param {number} number2 
+ * @returns {number}
+ */
+const sum2 = (number1=2, number2=3) => number1 + number2;
