@@ -1,27 +1,15 @@
 'use strict';
 
-let booleanValue = false;
+const objNumber = new Number(12);
+console.log(objNumber);
+console.log(objNumber.valueOf());
 
-const booleanObj = new Boolean(false); //address
-console.log(booleanObj);
-// console.log(typeof booleanObj.toString(), booleanObj.toString());
-// console.log(typeof booleanObj.valueOf(), booleanObj.valueOf());
-
-if (booleanValue) {
-  console.log('booleanValue = ', booleanValue);
-}
-
-if (booleanObj) {
-  console.log('booleanObj value = ', booleanObj.valueOf());
-}
-
-const test = true.toString();
-
-const test2 = new Boolean(true).toString();
-
-const test3 = Boolean('');
-console.log(test3);
+const number1 = 12.345;// 1,2345*10^4
+console.log(number1.toExponential());
+console.log(number1.toFixed(2));
 
 
-const value1 = 5;
-const value2 = true;
+const bigInt = 123123123n;
+console.log(bigInt);
+console.log(bigInt.toString());
+console.log(bigInt.toLocaleString());
