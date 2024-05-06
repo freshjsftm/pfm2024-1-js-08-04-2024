@@ -1,7 +1,10 @@
 const GENRES = ['comedy', 'drama', 'horor'];
+//GENRES.includes(value) === false -> throw
 
 class Book {
   #title;
+  #author;
+  #genre;
   #yearCreate;
   constructor(title, author, genre, yearCreate) {
     this.title = title; //рядок мінімум 2 літери
