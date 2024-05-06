@@ -16,3 +16,4 @@ class User {
 
 const userClasses = new User('Brad', 'Pitt', 60);
 const userClasses2 = new User('Anna', 'Pitt', 23);
+
