@@ -39,7 +39,7 @@ class User {
     if (typeof value !== 'string') {
       throw new TypeError('value must be string');
     }
-    if (value.trim().length < 2) {
+    if (value.trim().length < 2 ) {
       throw new RangeError('length must be >= 2');
     }
     this.#lname = value;
