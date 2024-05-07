@@ -1,7 +1,6 @@
 'use strict';
 
 class User {
-  #age;
   /**
    *
    * @param {string} fname
@@ -52,7 +51,7 @@ class User {
     this._lname = value;
   }
   get age() {
-    return this.#age;
+    return this._age;
   }
   set age(value) {
     if (typeof value !== 'number') {
@@ -61,7 +60,7 @@ class User {
     if (value <= 0 || value > 150) {
       throw new RangeError('must be in diapazon 1-150');
     }
-    this.#age = value;
+    this._age = value;
   }
 }
 
@@ -81,7 +80,7 @@ class UserWithAccount extends User {
     this.phone = phone;
   }
   changeAge(){
-    this.#age++;
+    this._age++;
   }
   getInfo() {
     return super.getInfo() +` ${this.email} ${this.phone}`;
@@ -101,6 +100,34 @@ const userWithAcc = new UserWithAccount(
 console.log(userWithAcc);
 console.log(userWithAcc.getFullName());
 console.log(userWithAcc.getInfo());
+
+
+class Admin extends UserWithAccount{
+  constructor(fname, lname, age, email, phone, secretKey){
+    super(fname, lname, age, email, phone); 
+    this.secretKey = secretKey;
+  }
+  getFullName(){
+    return super.getFullName() + '!!!!!!!';
+  }
+  toString(){
+    return 'admin, key: '+this.secretKey;
+  }
+}
+
+const admin = new Admin(
+  'Fred',
+  'Asd',
+  46,
+  'fred@gmail.com',
+  '123-23-23',
+  'ewryt34g5476'
+);
+console.log(admin);
+console.log(admin.getFullName());
+console.log(admin.toString());
+//alert(admin)
+//alert({prop:45})
 
 //Основу ООП складають чотири основні концепції:
 // інкапсуляція,
