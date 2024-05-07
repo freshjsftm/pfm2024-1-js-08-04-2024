@@ -12,6 +12,12 @@ class User {
     this.lname = lname;
     this.age = age;
     this.isSubscribe = false;
+    User.amount++;
+  }
+  static amount = 0; /// User.amount = 0
+  static isUser(obj) {
+    /// User.isUser(obj){}
+    return obj instanceof User;
   }
   getFullName() {
     return `${this._fname} ${this._lname}`;
@@ -36,7 +42,7 @@ class User {
     if (typeof value !== 'string') {
       throw new TypeError('value must be string');
     }
-    if (value.trim().length < 2 ) {
+    if (value.trim().length < 2) {
       throw new RangeError('length must be >= 2');
     }
     this._lname = value;
@@ -57,7 +63,7 @@ class User {
 
 try {
   const userClasses = new User('Brad', 'Pitt', 60);
-  console.log(userClasses)
+  console.log(userClasses);
   console.log(userClasses.fname);
   userClasses.age = 45;
   console.log(userClasses.age);
@@ -66,3 +72,14 @@ try {
 }
 
 console.log('code');
+
+const objUser = {
+  fname: 'Alex',
+  lname: 'Alex',
+};
+
+if(User.isUser(objUser)){
+  objUser.getFullName()
+}else{
+  console.log('object not User');
+}
