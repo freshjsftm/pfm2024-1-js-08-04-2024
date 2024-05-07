@@ -2,10 +2,6 @@ const GENRES = ['comedy', 'drama', 'horor'];
 //GENRES.includes(value) === false -> throw
 
 class Book {
-  #title;
-  #author;
-  #genre;
-  #yearCreate;
   constructor(title, author, genre, yearCreate) {
     this.title = title; //рядок мінімум 2 літери
     this.author = author; //рядок мінімум 3 літери
@@ -13,7 +9,7 @@ class Book {
     this.yearCreate = yearCreate; //ціле додатнє число
   }
   get title() {
-    this.#title;
+    this._title;
   }
   set title(value) {
     if (typeof value !== 'string') {
@@ -22,10 +18,10 @@ class Book {
     if (value.trim().length < 2) {
       throw new RangeError('length must be >= 2');
     }
-    this.#title = value;
+    this._title = value;
   }
   get yearCreate() {
-    return this.#yearCreate;
+    return this._yearCreate;
   }
   set yearCreate(value) {
     if (typeof value !== 'number') {
@@ -34,13 +30,13 @@ class Book {
     if (value <= 0 || Number.isInteger(value) === false) {
       throw new RangeError('must be positive integer');
     }
-    this.#yearCreate = value;
+    this._yearCreate = value;
   }
   getInfo() {
-    return `"${this.#title}" ${this.author} (${this.genre}) ${this.#yearCreate}`;
+    return `"${this._title}" ${this.author} (${this.genre}) ${this._yearCreate}`;
   }
   get info() {
-    return `"${this.#title}" ${this.author} (${this.genre}) ${this.#yearCreate}`;
+    return `"${this._title}" ${this.author} (${this.genre}) ${this._yearCreate}`;
   }
 }
 
