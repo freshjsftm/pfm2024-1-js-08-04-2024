@@ -41,6 +41,6 @@ class Book {
 }
 
 const book = new Book('It', 'King', 'horor', 1980);
-console.log(book);
-console.log(book.getInfo());
-console.log(book.info);
+// console.log(book);
+// console.log(book.getInfo());
+// console.log(book.info);

@@ -19,6 +19,9 @@ class User {
     /// User.isUser(obj){}
     return obj instanceof User;
   }
+  getInfo() {
+    return `${this._fname} ${this._lname} ${this.age}`;
+  }
   getFullName() {
     return `${this._fname} ${this._lname}`;
   }
@@ -63,23 +66,40 @@ class User {
 
 try {
   const userClasses = new User('Brad', 'Pitt', 60);
-  console.log(userClasses);
-  console.log(userClasses.fname);
-  userClasses.age = 45;
-  console.log(userClasses.age);
 } catch (error) {
   console.log(error);
 }
 
 console.log('code');
 
-const objUser = {
-  fname: 'Alex',
-  lname: 'Alex',
-};
-
-if(User.isUser(objUser)){
-  objUser.getFullName()
-}else{
-  console.log('object not User');
+//успадкування extends
+class UserWithAccount extends User {
+  constructor(fname, lname, age, email, phone) {
+    super(fname, lname, age); //super - address class User
+    this.email = email;
+    this.phone = phone;
+  }
+  getInfo() {
+    return super.getInfo() +` ${this.email} ${this.phone}`;
+  }
+  createWishList() {
+    return [];
+  }
 }
+
+const userWithAcc = new UserWithAccount(
+  'Olga',
+  'Bredly',
+  23,
+  'olga@gmail.com',
+  '123-23-23'
+);
+console.log(userWithAcc);
+console.log(userWithAcc.getFullName());
+console.log(userWithAcc.getInfo());
+
+//Основу ООП складають чотири основні концепції:
+// інкапсуляція,
+// успадкування,
+// поліморфізм
+// абстракція
