@@ -1,6 +1,7 @@
 'use strict';
 
 class User {
+  #age;
   /**
    *
    * @param {string} fname
@@ -51,7 +52,7 @@ class User {
     this._lname = value;
   }
   get age() {
-    return this._age;
+    return this.#age;
   }
   set age(value) {
     if (typeof value !== 'number') {
@@ -60,7 +61,7 @@ class User {
     if (value <= 0 || value > 150) {
       throw new RangeError('must be in diapazon 1-150');
     }
-    this._age = value;
+    this.#age = value;
   }
 }
 
@@ -78,6 +79,9 @@ class UserWithAccount extends User {
     super(fname, lname, age); //super - address class User
     this.email = email;
     this.phone = phone;
+  }
+  changeAge(){
+    this.#age++;
   }
   getInfo() {
     return super.getInfo() +` ${this.email} ${this.phone}`;
