@@ -64,11 +64,8 @@ class User {
   }
 }
 
-try {
   const userClasses = new User('Brad', 'Pitt', 60);
-} catch (error) {
-  console.log(error);
-}
+
 
 console.log('code');
 
@@ -128,6 +125,8 @@ console.log(admin.getFullName());
 console.log(admin.toString());
 //alert(admin)
 //alert({prop:45})
+
+console.log(User.isUser(admin));
 
 //Основу ООП складають чотири основні концепції:
 // інкапсуляція,

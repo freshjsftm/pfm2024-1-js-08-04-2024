@@ -1,5 +1,4 @@
-const GENRES = ['comedy', 'drama', 'horor'];
-//GENRES.includes(value) === false -> throw
+const GENRES = ['comedy', 'drama', 'horor', 'fantasy'];
 
 class Book {
   constructor(title, author, genre, yearCreate) {
@@ -7,6 +6,18 @@ class Book {
     this.author = author; //рядок мінімум 3 літери
     this.genre = genre; //рядок один з переліку ['comedy','drama','horor']
     this.yearCreate = yearCreate; //ціле додатнє число
+  }
+  get genre() {
+    this._genre;
+  }
+  set genre(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError('value must be string');
+    }
+    if (GENRES.includes(value) === false) {
+      throw new RangeError('genre not exists');
+    }
+    this._genre = value;
   }
   get title() {
     this._title;
