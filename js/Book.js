@@ -1,12 +1,19 @@
-const GENRES = ['comedy', 'drama', 'horor', 'fantasy'];
 
 class Book {
+  /**
+   * 
+   * @param {*} title 
+   * @param {*} author 
+   * @param {*} genre 
+   * @param {*} yearCreate 
+   */
   constructor(title, author, genre, yearCreate) {
     this.title = title; //рядок мінімум 2 літери
     this.author = author; //рядок мінімум 3 літери
     this.genre = genre; //рядок один з переліку ['comedy','drama','horor']
     this.yearCreate = yearCreate; //ціле додатнє число
   }
+  static GENRES = ['comedy', 'drama', 'horor', 'fantasy'];
   get genre() {
     this._genre;
   }
@@ -14,7 +21,7 @@ class Book {
     if (typeof value !== 'string') {
       throw new TypeError('value must be string');
     }
-    if (GENRES.includes(value) === false) {
+    if (Book.GENRES.includes(value) === false) {
       throw new RangeError('genre not exists');
     }
     this._genre = value;
@@ -43,6 +50,10 @@ class Book {
     }
     this._yearCreate = value;
   }
+  /**
+   * 
+   * @returns 
+   */
   getInfo() {
     return `"${this._title}" ${this.author} (${this.genre}) ${this._yearCreate}`;
   }
