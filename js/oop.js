@@ -20,14 +20,16 @@ class Figura {
   getPerimetr() {
     throw new Error('method abstract class');
   }
+  // Figura.isFigure(obj)
+  static isFigure(value) {
+    return value instanceof Figura;
+  }
 }
 try {
   const figura = new Figura('qwe');
 } catch (error) {
   console.error(error);
 }
-
-
 
 class Triangular extends Figura {
   constructor(sideA, sideB, angleAB) {
@@ -68,7 +70,6 @@ class Circle extends Figura {
   }
 }
 
-
 class Square extends Figura {
   constructor(side) {
     super('Square');
@@ -78,12 +79,12 @@ class Square extends Figura {
   get side() {
     return this._side;
   }
-  set side(value){
+  set side(value) {
     //перевірка на тип та на значення
-    this._side = side;
+    this._side = value;
   }
   getArea() {
-    return this._side ** 2 ;
+    return this._side ** 2;
   }
 }
 
@@ -100,7 +101,18 @@ const getAreaFigure = (figure) => {
   throw new TypeError('must be Figura');
 };
 
-console.log(getAreaFigure(triang1));
-console.log(getAreaFigure(circle1));
-console.log(getAreaFigure(square1));
-//console.log(getAreaFigure({}));
+const getAreaFigure2 = (figure) => {
+  if (Figura.isFigure(figure)) {
+    return figure.getArea();
+  }
+  throw new TypeError('must be Figura');
+};
+try {
+  console.log(getAreaFigure2(triang1));
+  console.log(getAreaFigure2(circle1));
+  console.log(getAreaFigure2(square1));
+  //console.log(getAreaFigure({}));
+  console.log(getAreaFigure2({}));
+} catch (error) {
+  console.error(error)
+}
