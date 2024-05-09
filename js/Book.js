@@ -1,11 +1,10 @@
-
 class Book {
   /**
-   * 
-   * @param {*} title 
-   * @param {*} author 
-   * @param {*} genre 
-   * @param {*} yearCreate 
+   *
+   * @param {*} title
+   * @param {*} author
+   * @param {*} genre
+   * @param {*} yearCreate
    */
   constructor(title, author, genre, yearCreate) {
     this.title = title; //рядок мінімум 2 літери
@@ -15,7 +14,7 @@ class Book {
   }
   static GENRES = ['comedy', 'drama', 'horor', 'fantasy'];
   get genre() {
-    this._genre;
+    return this._genre;
   }
   set genre(value) {
     if (typeof value !== 'string') {
@@ -27,7 +26,7 @@ class Book {
     this._genre = value;
   }
   get title() {
-    this._title;
+    return this._title;
   }
   set title(value) {
     if (typeof value !== 'string') {
@@ -51,8 +50,8 @@ class Book {
     this._yearCreate = value;
   }
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   getInfo() {
     return `"${this._title}" ${this.author} (${this.genre}) ${this._yearCreate}`;
