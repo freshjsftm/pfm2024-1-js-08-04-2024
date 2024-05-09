@@ -3,9 +3,12 @@
 // абстракція
 // поліморфізм
 
-//abstract class
+//abstract class - template
 class Figura {
   constructor(name) {
+    if (this.constructor === Figura) {
+      throw new Error('you can`t create instance of abstract class');
+    }
     this._name = name;
   }
   get name() {
@@ -18,6 +21,13 @@ class Figura {
     throw new Error('method abstract class');
   }
 }
+try {
+  const figura = new Figura('qwe');
+} catch (error) {
+  console.error(error);
+}
+
+
 
 class Triangular extends Figura {
   constructor(sideA, sideB, angleAB) {
@@ -47,7 +57,7 @@ class Triangular extends Figura {
 class Circle extends Figura {
   constructor(radius) {
     super('Circle');
-    //перевірка
+    //перевірка на тип та на значення
     this._radius = radius;
   }
   get radius() {
@@ -58,8 +68,28 @@ class Circle extends Figura {
   }
 }
 
+
+class Square extends Figura {
+  constructor(side) {
+    super('Square');
+    //перевірка на тип та на значення
+    this.side = side; //викликаємо сеттер!!!
+  }
+  get side() {
+    return this._side;
+  }
+  set side(value){
+    //перевірка на тип та на значення
+    this._side = side;
+  }
+  getArea() {
+    return this._side ** 2 ;
+  }
+}
+
 const triang1 = new Triangular(3, 4, 45);
 const circle1 = new Circle(10);
+const square1 = new Square(10);
 
 console.log(triang1.name);
 
@@ -72,4 +102,5 @@ const getAreaFigure = (figure) => {
 
 console.log(getAreaFigure(triang1));
 console.log(getAreaFigure(circle1));
+console.log(getAreaFigure(square1));
 //console.log(getAreaFigure({}));
