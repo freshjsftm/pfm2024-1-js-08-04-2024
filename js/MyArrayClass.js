@@ -68,13 +68,13 @@ class MyArrayClass {
 }
 
 try {
-  const myArrNums3 = new MyArrayClass(3, 3, 3);
-  const myArrNums2 = new MyArrayClass(myArrNums3, 2, 2);
-  const myArrNums1 = new MyArrayClass(1, 1, myArrNums2, 1);
-  const myArr = new MyArrayClass(0, myArrNums1, 0, 0);
+  // const myArrNums3 = new MyArrayClass(3, 3, 3);
+  // const myArrNums2 = new MyArrayClass(myArrNums3, 2, 2);
+  // const myArrNums1 = new MyArrayClass(1, 1, myArrNums2, 1);
+  const myArr = new MyArrayClass(0, 0, 0);
 
   console.log(myArr);
-  console.log(myArr.flat(Infinity));
+  //console.log(myArr.flat(Infinity));
 } catch (error) {
   console.error(error);
 }
