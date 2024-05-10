@@ -1,13 +1,11 @@
 'use strict';
 
-function MyObj(prop) {
-  if (!new.target) {
-    return new MyObj(prop);
-  }
-  this.prop = prop;
-}
+const arr1 = [1, 1, [2, 2, [3, [4, 4, [5, 5, 5, [6, 6]], 4], 3, 3], 2], 1];
 
-const obj1 = MyObj(78);
-console.log(obj1);
+console.log(arr1);
 
-const obj = Object();
+// console.log(arr1.flat(1));
+
+// console.log(arr1.flat(3));
+
+// console.log(arr1.flat(Infinity));
