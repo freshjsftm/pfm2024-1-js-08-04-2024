@@ -1,23 +1,12 @@
 'use strict';
-import object1 from './js/symbol.js';
 
-const arr1 = [1, 1, 1];
-console.log(arr1);
+const arr1 = [1, 2, 3];
 
-let keyNumber = 45;
-let strKey = 'prop'; //hucker
-// delete object1[strKey];
 
-// delete object1[symbol1];
-console.log(object1);
-console.log(object1[keyNumber]);
-console.log(object1[45]);
-console.log(object1.prop);
-console.log(object1['prop']);
-console.log(object1[strKey]);
-// console.log(object1[symbol1]);
-
-for (const key in object1) {
-  const element = object1[key];
-  console.log(key, element);
+for (const elem of arr1) {
+  console.log(elem);
 }
+
+console.log(...arr1);
+
+const s1 = Symbol();

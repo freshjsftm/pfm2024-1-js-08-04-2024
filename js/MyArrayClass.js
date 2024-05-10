@@ -1,11 +1,28 @@
 'use strict';
 
+class IteratorMyArrayClass{
+  constructor(myArrayInstance){
+    this.collection = myArrayInstance;
+    this.currentIndex = 0;
+  }
+  next(){
+    return {
+      value: this.collection[this.currentIndex++],
+      done: this.currentIndex > this.collection.length,
+    }
+  }
+}
+
 class MyArrayClass {
   constructor() {
     this.length = 0;
-    console.log(arguments);
-    for (let index = 0; index < arguments.length; index++) {
-      const element = arguments[index];
+    // console.log(arguments);
+    // console.log(...arguments);
+    // for (let index = 0; index < arguments.length; index++) {
+    //   const element = arguments[index];
+    //   this.push(element);
+    // }
+    for (const element of arguments) {
       this.push(element);
     }
   }
@@ -27,27 +44,14 @@ class MyArrayClass {
     if (typeof func !== 'function') {
       throw new TypeError(func + ' - not function');
     }
-    for (let index = 0; index < this.length; index++) {
-      const element = this[index];
+    // for (let index = 0; index < this.length; index++) {
+    //   const element = this[index];
+    //   func(element);
+    // }
+    for (const element of this) {
       func(element);
     }
   }
-  // flat(depth = 1) {
-  //   const resultMyArray = new MyArrayClass();
-  //   for (let index = 0; index < this.length; index++) {
-  //     const element = this[index];
-  //     if (MyArrayClass.isMyArrayClass(element) && depth > 0) {
-  //       const subResultMyArray = element.flat(depth - 1);
-  //       for (let i = 0; i < subResultMyArray.length; i++) {
-  //         const subElement = subResultMyArray[i];
-  //         resultMyArray.push(subElement);
-  //       }
-  //     } else {
-  //       resultMyArray.push(element);
-  //     }
-  //   }
-  //   return resultMyArray;
-  // }
   flat(depth = 1) {
     const resultMyArray = new MyArrayClass();
     this.forEach((element) => {
@@ -61,6 +65,9 @@ class MyArrayClass {
     });
     return resultMyArray;
   }
+  [Symbol.iterator](){ 
+    return new IteratorMyArrayClass(this);
+  }
 
   static isMyArrayClass(value) {
     return value instanceof MyArrayClass;
@@ -68,13 +75,14 @@ class MyArrayClass {
 }
 
 try {
-  // const myArrNums3 = new MyArrayClass(3, 3, 3);
-  // const myArrNums2 = new MyArrayClass(myArrNums3, 2, 2);
-  // const myArrNums1 = new MyArrayClass(1, 1, myArrNums2, 1);
-  const myArr = new MyArrayClass(0, 0, 0);
 
+  const myArr = new MyArrayClass(10, 20, 30);
+  console.log(...myArr);
+  for (const elem of myArr) {
+    console.log(elem);
+  }
   console.log(myArr);
-  //console.log(myArr.flat(Infinity));
+
 } catch (error) {
   console.error(error);
 }
