@@ -74,15 +74,15 @@ class MyArrayClass {
   }
 }
 
-try {
+// try {
 
-  const myArr = new MyArrayClass(10, 20, 30);
-  console.log(...myArr);
-  for (const elem of myArr) {
-    console.log(elem);
-  }
-  console.log(myArr);
+//   const myArr = new MyArrayClass(10, 20, 30);
+//   console.log(...myArr);
+//   for (const elem of myArr) {
+//     console.log(elem);
+//   }
+//   console.log(myArr);
 
-} catch (error) {
-  console.error(error);
-}
+// } catch (error) {
+//   console.error(error);
+// }
