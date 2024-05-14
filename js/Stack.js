@@ -35,8 +35,8 @@ class Stack {
 }
 
 const stack1 = new Stack(5, {p:12},['a','z'],'qwert',null, true);
-console.log(stack1.isEmpty);
-console.log(stack1);
-console.log(stack1.pop());
-console.log(stack1.pop());
-console.log(stack1);
+// console.log(stack1.isEmpty);
+// console.log(stack1);
+// console.log(stack1.pop());
+// console.log(stack1.pop());
+// console.log(stack1);
