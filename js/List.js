@@ -12,6 +12,23 @@ class ListNode {
   }
 }
 
+class DoublyLinkedListIterator {
+  constructor(list) {
+    this.list = list;
+    this.currentNode = null;
+  }
+  next() {
+    this.currentNode = this.currentNode
+      ? this.currentNode.next
+      : this.list.head;
+    return {
+      // value: this.currentNode ? this.currentNode.data : undefined,
+      value: this.currentNode?.data,
+      done: this.currentNode === null,
+    };
+  }
+}
+
 class DoublyLinkedList {
   constructor(...items) {
     //nodes - array
@@ -34,11 +51,14 @@ class DoublyLinkedList {
     }
     return ++this.length;
   }
+  [Symbol.iterator]() {
+    return new DoublyLinkedListIterator(this);
+  }
 }
 
-const list1 = new DoublyLinkedList(1, {prop:12}, true);
+const list1 = new DoublyLinkedList(1, { prop: 12 }, true);
 const list2 = new DoublyLinkedList();
 
-// for (const listItem of list1) {
-//   console.log(listItem);
-// }
+for (const listItem of list1) {
+  console.log(listItem);
+}
