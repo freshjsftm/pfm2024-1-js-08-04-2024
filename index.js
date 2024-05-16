@@ -1,57 +1,41 @@
 'use strict';
 
-const dictionary = new Map();
-dictionary.set('собака', 'dog');
-dictionary.set('кішка', 'cat');
-dictionary.set('риба', 'fish');
-dictionary.set('річка', 'river');
-dictionary.set('ранок', 'morning');
-dictionary.set('ходити', 'walk');
-dictionary.set('піймати', 'to catch');
-dictionary.set('весело', 'funny');
-dictionary.set('бачити', 'see');
-dictionary.set('і', 'and');
-dictionary.set('на', 'at');
+//Set
+const sum = (a, b) => a + b;
+const arr1 = [4, 5, 9, 4, 8, 6, 9, 4, 9];
+console.log(arr1);
+const setArr1 = new Set(arr1); //{4, 5, 9, 8, 6}
+console.log(setArr1);
+const uniqArr1 = [...setArr1]; //[4, 5, 9, 8, 6]
+console.log(uniqArr1);
+//short syntax
+const uniqArr2 = [...new Set(arr1)];
+console.log(uniqArr2);
 
-const sent =
-  'Собака і кішка   в    Ранок ,    ходити На річка бачити риба і піймати бути весело !';
-// const translate = (str, dict) => {
-//   //привести до нижнього регистру
-//   const lowerStr = str.toLowerCase();
-//   //розбити речення на масив слів - ключі мапи
-//   const words = lowerStr.split(' ').filter((word)=>word);
-//   //по ключам в мапі знайти відповідні слова і зібрати їх в новий масив
-//   const newWords = words.map((word)=>{
-//     return dictionary.has(word) ?dictionary.get(word) : word;
-//   })
-//   //цей новий масив перетворити на рядок
-//   const newStr = newWords.join(' ');
-//   return newStr;
-// };
-// const translate = (str, dict) => {
-//   //привести до нижнього регистру
-//   //const lowerStr = str.toLowerCase();
-//   //розбити речення на масив слів - ключі мапи
-//   //const words = lowerStr.split(' ').filter((word)=>word);
-//   //по ключам в мапі знайти відповідні слова і зібрати їх в новий масив
-//   // const newWords = words.map((word)=>{
-//   //   return dictionary.has(word) ? dictionary.get(word) : word;
-//   // })
-//   //цей новий масив перетворити на рядок
-//   // const newStr = newWords.join(' ');
-//   return str.toLowerCase().split(' ').filter((word)=>word).map((word)=>{
-//     return dictionary.has(word) ? dictionary.get(word) : word;
-//   }).join(' ');
-// };
+const set1 = new Set();
+console.log(set1);
+set1.add(1);
+set1.add(1);
+set1.add('1');
+set1.add(sum);
+set1.add(sum(4, 8));
+set1.add(sum());
+set1.add(sum());
+set1.add(arr1);
+set1.add();
+set1.add(sum);
+set1.delete(1);
 
-const translate = (str, dict, sep = ' ') =>
-  str
-    .toLowerCase()
-    .split(sep)
-    .filter((word) => word)
-    .map((word) => (dict.has(word) ? dict.get(word) : word))
-    .join(sep);
+console.log(set1);
 
-console.log(translate(sent, dictionary));
+console.log(...set1.entries());
+console.log(...set1.keys());
+console.log(...set1.values());
 
+const sent1 = 'Set.prototype.union()';
+const letters = new Set('qwqqq'); //q,w,q,q,q
+console.log(letters);
 
+const sent2 = 'to be or not to be';
+const words = new Set(sent2.split(' '));
+console.log(words);
