@@ -25,12 +25,12 @@ class Queue {
 }
 
 const queue1 = new Queue('a',16,false,null);
-console.log(queue1.enqueue(45));
-console.log(queue1.enqueue([9]));
-console.log(queue1.enqueue('qqq'));
-console.log(queue1.enqueue(true));
-console.log(queue1);
-console.log(queue1.dequeue());
-console.log(queue1.dequeue());
-console.log(queue1);
-console.log(queue1.size);
+// console.log(queue1.enqueue(45));
+// console.log(queue1.enqueue([9]));
+// console.log(queue1.enqueue('qqq'));
+// console.log(queue1.enqueue(true));
+// console.log(queue1);
+// console.log(queue1.dequeue());
+// console.log(queue1.dequeue());
+// console.log(queue1);
+// console.log(queue1.size);
